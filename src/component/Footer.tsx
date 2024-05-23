@@ -8,6 +8,10 @@ import { InputField } from "@/component";
 import { useForm } from "react-hook-form";
 import { FORMTYPEFORGOTPASS } from "@/type/formType";
 import { nameRules } from "@/rules/authRules";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 const Footer = () => {
   const { control, handleSubmit } = useForm<FORMTYPEFORGOTPASS>({
     defaultValues: {
@@ -31,8 +35,8 @@ const Footer = () => {
         />
         <Typography className="text-[#fff] font-bold">E-Com</Typography>
       </Box>
-      <Box className="py-[50px]">
-        <Box className="flex justify-around">
+      <Box className="md:py-[50px] py-[10px]">
+        <Box className="md:flex md:flex-row md:justify-around  flex-wrap justify-start hidden">
           {footerList.map((value, index) => {
             return (
               <Box key={index} className="flex flex-col gap-2">
@@ -71,7 +75,17 @@ const Footer = () => {
         </Box>
       </Box>
       <Box className="w-[100%] my-[10px]">
-        <Divider className="text-[#fff] " />
+        <Divider className="bg-[#fff]" />
+      </Box>
+      <Box className="flex justify-evenly items-center pt-[10px]">
+        <Typography className="text-[#fff]">Terms & Conditions</Typography>
+        <Typography className="text-[#fff]">Privacy Policy</Typography>
+        <Box className="flex gap-3">
+          <FaFacebookSquare className="text-[#fff]" />
+          <FaInstagram className="text-[#fff]" />
+          <FaWhatsapp className="text-[#fff]" />
+          <FaTwitter className="text-[#fff]" />
+        </Box>
       </Box>
     </Box>
   );
