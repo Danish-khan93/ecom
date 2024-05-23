@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { FC } from "react";
 import { Box, Typography, Divider } from "@mui/material";
 import Image from "next/image";
 import logo from "../../public/assets/images/logo.png";
@@ -12,7 +12,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
-const Footer = () => {
+const Footer: FC = () => {
   const { control, handleSubmit } = useForm<FORMTYPEFORGOTPASS>({
     defaultValues: {
       email: "",

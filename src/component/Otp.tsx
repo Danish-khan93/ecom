@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import OtpInput from "react-otp-input";
 import { Controller } from "react-hook-form";
-
-const Otp = ({ control, name }: any) => {
+import { OTPFIELD } from "@/type/formFieldType";
+const Otp: FC<OTPFIELD> = ({ control, name }) => {
   return (
     <Controller
       name={name}
@@ -10,20 +10,20 @@ const Otp = ({ control, name }: any) => {
       render={({ field: { onChange, value } }) => {
         return (
           <OtpInput
-            value={value}   
+            value={value}
             onChange={onChange}
             numInputs={4}
             renderSeparator={<span>-</span>}
             inputStyle={{
-                width: "40px",
-                height: "40px",
-                margin: "0 8px",
-                fontSize: "16px",
-                borderRadius: "4px",
-                border: "1px solid #ccc",
-                textAlign: "center",
-                outline: "none",
-                backgroundColor: "#f7f7f7",
+              width: "40px",
+              height: "40px",
+              margin: "0 8px",
+              fontSize: "16px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+              textAlign: "center",
+              outline: "none",
+              backgroundColor: "#f7f7f7",
             }}
             renderInput={(props) => <input {...props} />}
           />
