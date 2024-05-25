@@ -6,4 +6,5 @@ import ComButton from "./ComButton";
 import ComCheckBox from "./ComCheckBox";
 import Otp from "./Otp";
 import DebounceSearch from "./DebounceSearch";
-export {Header,Footer,Container ,InputField,ComButton,ComCheckBox,Otp,DebounceSearch}
+import ResHeaderMenu from "./ResHeaderMenu"
+export {Header,Footer,Container ,InputField,ComButton,ComCheckBox,Otp,DebounceSearch,ResHeaderMenu}

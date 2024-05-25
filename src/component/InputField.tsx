@@ -1,3 +1,4 @@
+"use client"
 import React, { FC } from "react";
 import { Controller } from "react-hook-form";
 import { Typography, FormLabel, OutlinedInput, Box } from "@mui/material";

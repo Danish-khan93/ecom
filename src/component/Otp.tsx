@@ -1,3 +1,4 @@
+"use client"
 import React, { FC } from "react";
 import OtpInput from "react-otp-input";
 import { Controller } from "react-hook-form";

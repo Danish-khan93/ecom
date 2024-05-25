@@ -4,10 +4,11 @@ import logo from "../../public/assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { headerLink } from "@/constant/header";
-import { DebounceSearch } from "@/component";
+import { DebounceSearch,ResHeaderMenu } from "@/component";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
+
 const Header: FC = () => {
   return (
     <AppBar position="static" className="bg-[#fff]">
@@ -17,7 +18,7 @@ const Header: FC = () => {
             <Image src={logo} alt="logo" priority width={30} height={30} />
           </Link>
         </Box>
-        <Box className="flex gap-3">
+        <Box className="md:flex hidden gap-3">
           {headerLink.map((value, index) => {
             return (
               <Link className="text-[#000]" key={index} href={value.link}>
@@ -29,7 +30,7 @@ const Header: FC = () => {
         <Box>
           <DebounceSearch />
         </Box>
-        <Box className="flex gap-5">
+        <Box className="sm:flex hidden gap-5">
           <Link href={"/wishlist"}>
             <CiHeart className="text-[#000] text-[20px]" />
           </Link>
@@ -39,6 +40,9 @@ const Header: FC = () => {
           <Link href={"/signup"}>
             <CiUser className="text-[#000] text-[20px]" />
           </Link>
+        </Box>
+        <Box className="sm:hidden flex">
+          <ResHeaderMenu/>
         </Box>
       </Toolbar>
     </AppBar>
