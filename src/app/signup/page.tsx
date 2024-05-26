@@ -10,8 +10,10 @@ import { FORMTYPESIGNUP } from "@/type/formType";
 import Link from "next/link";
 import facebook from "../../../public/assets/images/Rectangle 425.svg";
 import google from "../../../public/assets/images/image 13.svg";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  const router = useRouter();
   // form setup
   const {
     handleSubmit,
@@ -33,6 +35,13 @@ const page = () => {
     if (data?.confirmPassword === data?.password) {
       delete data?.confirmPassword;
       console.log(data);
+      try {
+        localStorage.setItem("user", JSON.stringify(data));
+        console.log("User data saved to localStorage");
+        router.push("/");
+      } catch (error) {
+        console.error("Error saving to localStorage", error);
+      }
     } else {
       setError("confirmPassword", {
         types: {
@@ -115,9 +124,9 @@ const page = () => {
               src={facebook}
               priority
               alt="fb Icon"
-              width={50}
-              height={50}
-              className="w-[50px] h-[50px]"
+              width={30}
+              height={30}
+              className="w-[30px] h-[30px]"
             />
           </IconButton>
           <IconButton>
@@ -125,9 +134,9 @@ const page = () => {
               src={google}
               priority
               alt="fb Icon"
-              width={50}
-              height={50}
-              className="w-[50px] h-[50px]"
+              width={30}
+              height={30}
+              className="w-[30px] h-[30px]"
             />
           </IconButton>
         </Box>

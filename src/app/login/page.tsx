@@ -7,10 +7,12 @@ import { nameRules } from "@/rules/authRules";
 import Image from "next/image";
 import Logo from "../../../public/assets/images/logo.png";
 import Link from "next/link";
-import { FORMTYPESIGNIN } from "@/type/formType";
+import { FORMTYPESIGNIN,FORMTYPESIGNUP } from "@/type/formType";
 import facebook from "../../../public/assets/images/Rectangle 425.svg";
 import google from "../../../public/assets/images/image 13.svg";
+import { useRouter } from "next/navigation";
 const page = () => {
+  const router = useRouter()
   // form setup
   const { handleSubmit, control } = useForm<FORMTYPESIGNIN>({
     defaultValues: {
@@ -22,6 +24,16 @@ const page = () => {
 
   const onSubmit = (data: FORMTYPESIGNIN) => {
     console.log(data);
+  // @ts-ignore
+    const user =JSON.parse(localStorage.getItem("user")) as FORMTYPESIGNUP
+    console.log(user);
+    
+    if(data.email === user.email){
+      router.push("/")
+    }else{
+      console.log("email is not correct ");
+      
+    }
   };
 
   return (

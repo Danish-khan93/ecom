@@ -1,15 +1,25 @@
-import React, { FC } from "react";
-import { Box, AppBar, Toolbar, Typography } from "@mui/material";
+"use client";
+import React, { FC, useEffect, useState } from "react";
+import { Box, AppBar, Toolbar, Typography, Divider } from "@mui/material";
 import logo from "../../public/assets/images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { headerLink } from "@/constant/header";
-import { DebounceSearch,ResHeaderMenu } from "@/component";
+import { DebounceSearch, ResHeaderMenu, SignupAndUser } from "@/component";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
-
 const Header: FC = () => {
+  const [isLoggedin, setIsLoggedin] = useState(false);
+ 
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const user = localStorage.getItem("user");
+      setIsLoggedin(user !== null);
+    }
+  }, []);
+
   return (
     <AppBar position="static" className="bg-[#fff]">
       <Toolbar className="flex justify-around items-center gap-4">
@@ -30,19 +40,36 @@ const Header: FC = () => {
         <Box>
           <DebounceSearch />
         </Box>
-        <Box className="sm:flex hidden gap-5">
+        <Box className="sm:flex items-center hidden gap-5">
           <Link href={"/wishlist"}>
             <CiHeart className="text-[#000] text-[20px]" />
           </Link>
           <Link href={"/cart"}>
             <IoCartOutline className="text-[#000] text-[20px]" />
           </Link>
-          <Link href={"/signup"}>
-            <CiUser className="text-[#000] text-[20px]" />
-          </Link>
+          <Box className="flex items-center">
+            {isLoggedin ? (
+              <SignupAndUser />
+            ) : (
+              <Box className="flex gap-2">
+                <CiUser className="text-[#000] text-[20px]" />
+                <Link href={"/login"}>
+                  <Typography className="text-[#000]">Login</Typography>
+                </Link>
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  className="text-[#000] bg-[#000]"
+                />
+                <Link href={"/signup"}>
+                  <Typography className="text-[#000]">Signup</Typography>
+                </Link>
+              </Box>
+            )}
+          </Box>
         </Box>
         <Box className="sm:hidden flex">
-          <ResHeaderMenu/>
+          <ResHeaderMenu />
         </Box>
       </Toolbar>
     </AppBar>
