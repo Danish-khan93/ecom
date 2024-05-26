@@ -8,7 +8,9 @@ import Otp from "./Otp";
 import DebounceSearch from "./DebounceSearch";
 import ResHeaderMenu from "./ResHeaderMenu";
 import SignupAndUser from "./SignupAndUser";
+import HeroSlider from "./HeroSlider";
 export {
+    HeroSlider,
   Header,
   Footer,
   Container,
