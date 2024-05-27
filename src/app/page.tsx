@@ -1,6 +1,6 @@
 // 'use client'
 import React from "react";
-import { Container, HeroSlider } from "@/component";
+import { Container, HeroSlider,Card } from "@/component";
 
 const page = () => {
   // console.log(process.env.NEXT_PUBLIC_ADMIN_URL)
@@ -8,6 +8,7 @@ const page = () => {
     <>
       <Container>{"danish"}</Container>
       <HeroSlider />
+      <Card/>
     </>
   );
 };

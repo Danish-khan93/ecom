@@ -9,8 +9,10 @@ import DebounceSearch from "./DebounceSearch";
 import ResHeaderMenu from "./ResHeaderMenu";
 import SignupAndUser from "./SignupAndUser";
 import HeroSlider from "./HeroSlider";
+import Card from "./Card";
 export {
-    HeroSlider,
+  Card,
+  HeroSlider,
   Header,
   Footer,
   Container,
