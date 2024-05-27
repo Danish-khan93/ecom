@@ -9,14 +9,25 @@ import { DebounceSearch, ResHeaderMenu, SignupAndUser } from "@/component";
 import { IoCartOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
+
+const user = ()=>{
+  const data= localStorage.getItem("user")
+  if(data !== null){
+   return  JSON.parse(data)
+  } else {
+return null
+  }
+}
+
 const Header: FC = () => {
-  const [isLoggedin, setIsLoggedin] = useState(false);
+  const [isLoggedin, setIsLoggedin] = useState(user());
+  console.log(isLoggedin);
  
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const user = localStorage.getItem("user");
-      setIsLoggedin(user !== null);
+    if(isLoggedin=== null){
+      // @ts-ignore
+      setIsLoggedin(JSON.parse(localStorage.getItem("user")))
     }
   }, []);
 
@@ -49,7 +60,7 @@ const Header: FC = () => {
           </Link>
           <Box className="flex items-center">
             {isLoggedin ? (
-              <SignupAndUser />
+              <SignupAndUser user={isLoggedin}/>
             ) : (
               <Box className="flex gap-2">
                 <CiUser className="text-[#000] text-[20px]" />

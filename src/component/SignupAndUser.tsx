@@ -1,11 +1,12 @@
 "use client";
 import * as React from "react";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import { Typography, Menu, Button, MenuItem } from "@mui/material";
 import { CiUser } from "react-icons/ci";
 import { useRouter } from "next/navigation";
-const SignupAndUser = () => {
+import { USER } from "@/type/localStore";
+const SignupAndUser: React.FC<USER> = ({ user }) => {
+  console.log(user);
+
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -30,7 +31,10 @@ const SignupAndUser = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <CiUser className="text-[#000] text-[20px]" />
+        <CiUser className="text-[#000] text-[20px]" />{" "}
+        <Typography className="text-[#000] text-[18px]">
+          {user?.name}
+        </Typography>
       </Button>
       <Menu
         id="basic-menu"
