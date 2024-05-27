@@ -10,7 +10,9 @@ import ResHeaderMenu from "./ResHeaderMenu";
 import SignupAndUser from "./SignupAndUser";
 import HeroSlider from "./HeroSlider";
 import Card from "./Card";
+import Gallery from "./Gallery";
 export {
+  Gallery,
   Card,
   HeroSlider,
   Header,
