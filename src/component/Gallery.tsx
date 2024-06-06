@@ -9,21 +9,85 @@ import Pic5 from "../../public/image5.png";
 import Pic6 from "../../public/image6.png";
 const Gallery = () => {
   return (
-    <Box className="px-[20px] w-full flex justify-evenly items-center py-[20px]">
-      <Box>
-        <Image src={Pic1} alt="gallery" />
-      </Box>
-      <Box className="flex flex-col gap-3">
-        <Image src={Pic2} alt="gallery" />
-        <Image src={Pic3} alt="gallery" />
-      </Box>
-      <Box className="flex flex-col gap-3">
-        <Box>
-          <Image src={Pic4} alt="gallery" />
+    <Box className="w-full my-[20px] sm:flex sm:flex-row sm:justify-around flex flex-col justify-center items-center gap-3">
+      <Box className=" sm:w-[30%] w-[95%] h-[500px] ">
+        <Box className="w-full h-full ">
+          <Image
+            priority
+            src={Pic1}
+            alt="gallery"
+            className="object-cover rounded-md"
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
         </Box>
-        <Box className="flex justify-between ">
-          <Image src={Pic5} alt="gallery" />
-          <Image src={Pic6} alt="gallery" />
+      </Box>
+      <Box className="sm:w-[30%] w-[95%] h-[500px] flex flex-col justify-between">
+        <Box className="h-[230px] w-full">
+          <Image
+            priority
+            src={Pic2}
+            alt="gallery"
+            className="object-cover rounded-md"
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </Box>
+        <Box className="h-[230px] w-full ">
+          <Image
+            priority
+            src={Pic3}
+            alt="gallery"
+            className="object-cover rounded-md"
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </Box>
+      </Box>
+      <Box className="sm:w-[30%] w-[95%] h-[500px] flex justify-between flex-col">
+        <Box className="w-full h-[230px]">
+          <Image
+            priority
+            src={Pic4}
+            alt="gallery"
+            className="object-cover rounded-md"
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </Box>
+        <Box className="w-full h-[230px] flex justify-between">
+          <Box className="h-[230px] w-[48%]">
+            <Image
+              priority
+              src={Pic5}
+              alt="gallery"
+              className="object-cover rounded-md"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </Box>
+          <Box className="h-[230px] w-[48%]">
+            <Image
+              priority
+              src={Pic6}
+              alt="gallery"
+              className="object-cover rounded-md"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </Box>
         </Box>
       </Box>
     </Box>

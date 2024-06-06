@@ -9,7 +9,7 @@ const ComCheckBox: FC<COMCHECKBOX> = ({ name, control, label }) => {
     <Controller
       name={name}
       control={control}
-      render={({ field: { onChange, value, ref } }) => {
+      render={({ field: { onChange, value } }) => {
         console.log(value);
 
         return (
@@ -18,7 +18,7 @@ const ComCheckBox: FC<COMCHECKBOX> = ({ name, control, label }) => {
               onChange={onChange}
               checked={value}
               defaultChecked={false}
-              inputRef={ref}
+              // inputRef={ref}
             />
             {label}
           </FormLabel>
