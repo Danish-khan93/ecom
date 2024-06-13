@@ -13,12 +13,12 @@ const Otp: FC<OTPFIELD> = ({ control, name }) => {
           <OtpInput
             value={value}
             onChange={onChange}
-            numInputs={4}
+            numInputs={6}
             renderSeparator={<span>-</span>}
             inputStyle={{
-              width: "40px",
-              height: "40px",
-              margin: "0 8px",
+              width: "50px",
+              height: "50px",
+              margin: "0 10px",
               fontSize: "16px",
               borderRadius: "4px",
               border: "1px solid #ccc",
